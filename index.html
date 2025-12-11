@@ -1,119 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ftvst</title>
-    <style>
-   .span{
-            font-weight:bold;
-            font-style: italic;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>여행을 떠나요</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial, Helvetica, sans-serif;display:flex;min-height:100vh;background:#f5f5f7}
 
-        }
+    /*레벨주의*/
+    .tab-input{display:none}
 
-    .h3{
-        font-size: 50px;
-        font-style: italic;
-        font-weight: bold;
-        color: chocolate;
-    }
-    .p{
-        font-size: 30px;
-        font-weight: bold;
-        color: rgb(183, 0, 255);
-    }
-    .green{
-            color: rgb(0, 171, 0);
-            font-weight: bold;
-        }
-
-    .blue{
-            color: rgb(0, 94, 255);
-            font-weight: bold;
-        }
-    .red{
-            color: rgb(242, 0, 0);
-            font-weight: bold;
-        }
-
-    .Yelo{
-            color: rgb(255, 221, 0);
-            font-weight: bold;
-        }
-    .sit{
-            color: rgb(242, 113, 0);
-            font-weight: bold;
-        }
-
-    .pupl{
-            color: rgb(160, 17, 248);
-            font-weight: bold;
-        }
-    
-    .lolo{
-        font-size: 17px;
-        font-weight: bold;
-    }
-    
-    li{
-        list-style-type:armenian;
+    /* 왼쪽 메뉴 */
+    nav{
+        width:220px;
+        background:#fff;
+        border-right:1px solid #ddd;
+        padding:16px
     }
 
-    p {
-        line-height: 1.6;
+    nav h2{
+        font-size:16px;
+        margin-bottom:10px
     }
 
-    .footer {
-        margin-top: 20px;
-        font-size: 0.8em;
-        color: #888;
+    nav label{
+        display:block;
+        padding:10px;
+        border-radius:6px;
+        cursor:pointer;
+        margin-bottom:6px;
+        background:transparent;
+        color:#333
     }
 
-    </style>
+    /* 선택항목 스타일 */
+    #t1:checked ~ nav label[for="t1"],
+    #t2:checked ~ nav label[for="t2"],
+    #t3:checked ~ nav label[for="t3"],
+    #t4:checked ~ nav label[for="t4"],
+    #t5:checked ~ nav label[for="t5"],
+    #t6:checked ~ nav label[for="t6"]
+    {
+      background:#0b76ff;color:#fff;font-weight:700;
+    }
+
+    /* 우측*/
+    main{
+        flex:1;
+        padding:20px
+    }
+
+    .page{display:none;
+        background:#fff;
+        padding:16px;
+        border-radius:8px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.04)
+    }
+
+    /*페이지*/
+    #t1:checked ~ main #p1,
+    #t2:checked ~ main #p2,
+    #t3:checked ~ main #p3,
+    #t4:checked ~ main #p4,
+    #t5:checked ~ main #p5,
+    #t6:checked ~ main #p6{display:block}
+
+    @media(max-width:720px){
+      body{flex-direction:column}
+      nav{width:100%;border-right:none;border-bottom:1px solid #ddd;display:flex;overflow-x:auto;white-space:nowrap}
+      nav label{display:inline-block;margin-right:8px}
+    }
+
+    header{background:#eee;padding:16px;width:100%}
+    footer{background:#fff;padding:12px;text-align:center;border-top:1px solid #ddd}
+  </style>
 </head>
-
 <body>
 
-<img src="poj.webp"><br>
 
- <span class="h3">그랜드-포장마차-페스티발</span>
-    <br><span class="p">아 주 맛 있 다 !</span>
-    <br><hr><br>
+  <input class="tab-input" type="radio" name="tab" id="t1" checked>
+  <input class="tab-input" type="radio" name="tab" id="t2">
+  <input class="tab-input" type="radio" name="tab" id="t3">
+  <input class="tab-input" type="radio" name="tab" id="t4">
+  <input class="tab-input" type="radio" name="tab" id="t5">
+  <input class="tab-input" type="radio" name="tab" id="t6">
 
-
-   <span class="lolo">청담동 전시관 1층</span>에서 포장마차 페스티발 을 진행합니다.<br>
-   
-   <span class="red">떡볶이</span>
-   <span class="sit">오뎅</span>
-   <span class="Yelo">순대</span>
-   <span class="green">조기</span>
-   <span class="blue">샌드위치</span>
-   <span class="pupl">쌀국수</span> 다 있습니다.<br>
-    많이많이 와주세요. <span class="lolo">맛</span>좋고
-     <span class="lolo">재미</span>납니다.
-
-<br>
-<ul>
-
-    <li><span class="lolo">~일시~</span>
-    <br> 2025년 6월 31일 26시 ~ 7월 2일 20시</li> 
-
-    <li><span class="lolo">~장소~</span>
-    <br> 성남시 청매동 사담로 12길 제4전시관 1층</li> 
-
-    <li><span class="lolo">~입장료~</span>
-    <br> 1시간 28분</li> 
+ 
+  <nav>
+    <h2>안내항목</h2>
     
-    <li><span class="lolo">~문의사항~</span>
-    <br> 010- xxxx- xxxx</li> 
+    <label for="t1">시작하며</label>
+    <label for="t2">여행 준비 지원 센터</label>
+    <label for="t3">일본 이동 안내</label>
+    <label for="t4">문화 이해 자료실</label>
+    <label for="t5">지역 탐방</label>
+    <label for="t6">초행자 표준 일정과 팁</label>
+  </nav>
+  
 
-</ul>
+  <main>
+    <header>
+      <h1>당신의 첫 일본 여행 지원센터_가이드북</h1>
+      <p>처음 일본을 방문하는 여행자를 위한 기초 정보 안내</p>
+    </header>
+
+    <section id="p1" class="page">
+      <h2>주요 안내</h2>
+      <p>
+        <br>
+    <ul>
+      <li><strong>여행 준비 지원 센터</strong> – 출국 전 준비물과 기본 체크리스트 제공</li>
+      <li><strong>일본 이동 안내</strong> – 공항부터 시내까지, 교통 이용 안내</li>
+      <li><strong>문화 이해 자료실</strong> – 기본 매너와 문화 차이 설명</li>
+      <li><strong>지역 탐방 </strong> – 주요 도시와 관광지 정보 정리</li>
+      <li><strong>초행자를 위한 표준 일정과 팁</strong> – 처음 가는 사람을 위한 일정 예시</li>
+    </ul>
+    </p>
+    <br>
+
+    </section>
+
+    <section id="p2" class="page">
+      <h2>출국 전 준비물, 체크리스트</h2>
+      <br>
+      <p>
+    <ul>
+      <li>1. 유효기간이 충분한 여권</li>
+      <li>2. 항공권 및 숙소 예약 내역</li>
+      <li>3. 현금 및 카드, 간단한 엔화</li>
+      <li>4. 여행자 보험 가입 여부 확인</li>
+      <li>5. 필요한 복용약과 개인 위생용품</li>
+    </ul><br>
+
+    <h2>통신 및 인터넷 준비</h2>
+    <p>현지에서 지도를 확인하거나 번역 앱을 사용하기 위해서는 인터넷 연결이 필요합니다.</p>
+    <ul><br>
+
+      <li>공항 수령형 포켓 와이파이 예약</li>
+      <li>일본 현지 유심칩 구입 또는 eSIM 사용</li>
+      <li>사용할 주요 앱 미리 설치 (지도, 번역, 예약 앱 등)</li>
+    </ul><br>
+
+    <h2>기본 정보 정리</h2>
+    <p>여행 일정표, 숙소 주소, 긴급 연락처 등은 미리 정리해두면 이동 시 도움이 됩니다.</p>
+    <ul><br>
+      <li>숙소 이름, 주소, 전화번호 메모</li>
+      <li>공항에서 숙소까지의 이동 방법 간단히 정리</li>
+      <li>현지에서 연락 가능한 연락처 공유</li>
+    </ul>
+    </p>
+    <br>
+    </section>
+
+    <section id="p3" class="page">
+      <h2>공항 이동, 교통수단 안내</h2>
 
 
-<hr>
-    <p class="footer">전국 포장마차 협회</p>
+    <p>도쿄, 오사카 등 주요 공항에서는 기차, 리무진 버스, 택시 등 여러가지 이동 수단을 선택할 수 있습니다.</p>
+    <ul><br>
+      <li>공항철도: 시내까지 빠르게 이동 가능</li>
+      <li>리무진 버스: 주요 호텔, 역까지 바로 연결</li>
+      <li>택시: 편리하지만 비용이 높을 수 있음</li>
+    </ul>
+    <br>
+
+    <h2>교통카드 기본 안내</h2>
+    
+    <p>도쿄와 여러 지역에서 사용할 수 있는 현지의 여행자 교통카드를 미리 준비하면 이동이 더 편리합니다.</p>
+    <ul><br>
+      <li>Suica 등 선불 교통카드 준비</li>
+      <li>개찰구에 카드를 가볍게 터치하여 탑승</li>
+      <li>편의점과 역 내 자동충전기에서 충전 가능</li>
+    </ul>
+    <br>
+
+    <h2>기본 지하철 이용 팁</h2>
+    
+    <p>노선도가 복잡해 보이더라도, 목적지 역 이름과 노선 색, 기차의 이름을 확인하면 잘 이동할 수 있습니다.</p>
+    <ul><br>
+      <li>역 이름과 출구 번호를 미리 메모</li>
+      <li>막차 시간을 확인하여 늦은 밤 이동을 피하기</li>
+      <li>혼잡 시간대에는 한두 정거장 먼저 내려 걷는 것도 고려</li>
+      <li>구글 맵 사용 추천</li>
+    </ul>
+    </p>
+    <br>
+    </section>
+
+    <section id="p4" class="page">
+      <p>
+        <h2>기본 인사 표현</h2>
+        <br>
+    <ul>
+      <li>안녕하세요: こんにちは (곤니찌와)</li>
+      <li>감사합니다: ありがとうございます (아리가토 고자이마스)</li>
+      <li>실례합니다: すみません (스미마센)</li>
+    </ul><br>
+
+    <h2>식당 이용 매너</h2>
+    <br>
+    <ul>
+      <li>입구에서 직원에게 인원을 알려주고 안내를 받습니다.</li>
+      <li>젓가락은 밥 위에 꽂지 않고, 받침이나 그릇 위에 올립니다.</li>
+      <li>자리 정리 후 “고치소-사마데싯타”와 같은 감사 인사를 하는 경우도 있습니다.<br>
+      요리사 분이 기뻐합니다.</li>
+    </ul><br>
+
+    <h2>공공장소에서의 기본 예절</h2>
+    <br>
+    <ul>
+      <li>지하철과 버스 안에서는 통화나 큰 소리를 자제합니다.</li>
+      <li>쓰레기를 마구 버리고다니지 맙시다.</li>
+      <li>줄을 서는 장소에서는 바닥의 표시선을 잘 확인하고 순서를 지킵니다.</li>
+    </ul>
+   </p><br>
+    </section>
+
+    <section id="p5" class="page">
+      <h2>도시별 주요 관광지 소개</h2>
+      <p>
+        <br>
+        <h2>도쿄</h2>
+    <ul>
+      <li>시부야 교차로 – 여러모로 유명한 장소. 번화한 시내 분위기를 느낄 수 있는 대표 지역</li>
+      <li>아사쿠사 – 사찰과 전통 상점가를 둘러볼 수 있는 지역</li>
+      <li>오다이바 – 바다 전망과 쇼핑몰이 있는 인공 섬 지역</li>
+    </ul><br>
+
+    <h2>오사카</h2>
+    <ul>
+      <li>도톤보리 – 간판과 야경, 길거리 음식을 즐길 수 있는 거리</li>
+      <li>오사카 성 – 성과 이쁜 공원을 함께 둘러볼 수 있는 명소</li>
+    </ul><br>
+
+    <h2>교토</h2>
+    <ul>
+      <li>기요미즈데라 – 전망과 함께 전통 거리를 즐길 수 있는 사찰</li>
+      <li>아라시야마 – 강과 대나무 숲, 자연 풍경을 감상할 수 있는 지역</li>
+    </ul><br>
+
+    <h2>후쿠오카</h2>
+    <ul>
+      <li>텐진 지하상가 – 상점과 카페가 모여 있는 중심가</li>
+      <li>나카스 포장마차 거리 – 간단한 야식을 즐길 수 있는 포장마차 거리</li>
+    </ul><br>
+
+      </p>
+
+    </section>
+
+    <section id="p6" class="page">
+      <h2>1일~5일 예시 일정</h2>
+      <p><br>
+        <ul>
+      <li>오전 – 아사쿠사 주변 산책 및 사찰 방문</li>
+      <li>점심 – 근처 상점가에서 간단한 식사</li>
+      <li>오후 – 스카이트리 주변 이동 및 전망 감상</li>
+      <li>저녁 – 시부야나 신주쿠로 이동하여 시내 야경 구경</li>
+    </ul><br>
+
+    <h2>2박 3일 일정 구성 예시</h2>
+    <ul><br>
+      <li>1일차 – 도착 후 숙소 체크인, 주변 탐색</li>
+      <li>2일차 – 주요 관광지 집중 방문</li>
+      <li>3일차 – 가벼운 쇼핑 후 공항 이동</li>
+    </ul><br>
+
+    <h2>일정 계획 시 Tip</h2>
+    <ul><br>
+      <li>하루에 너무 많은 장소를 넣기보다는 여유 있는 이동을 권장합니다.</li>
+      <li>교통 시간과 환승 시간을 미리 확인하면 일정이 더 안정적입니다.</li>
+      <li>한곳을 오랫동안 둘러봐도 즐겁습니다.</li>
+      </p><br>
+
+    </section>
+
+    <footer>
+      <p>© 당신의 첫 일본 여행 지원센터_가이드북</p>
+    </footer>
+  </main>
+
 </body>
-
-
-
 </html>
